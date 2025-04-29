@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -80,4 +81,22 @@ footer {
   padding: 20px;
   background-color: #f1f1f1;
   font-size: 14px;
+}
+
+/* Xoş gəlmisiniz animasiyası */
+.fade-in {
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+section {
+  display: none;
+}
+
+section:target, section.active {
+  display: block;
 }
