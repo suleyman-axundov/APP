@@ -1,4 +1,5 @@
-from flask import Flask, request
+
+from flask import Flask, request, render_template
 from flask_cors import CORS
 from flask_talisman import Talisman
 import smtplib
@@ -14,7 +15,7 @@ GMAIL_PASSWORD = 'ldvdfdkbubkffzty'
 
 @app.route('/')
 def home():
-    return 'Sayt işləyir!'
+    return render_template('index.html')
 
 @app.route('/submit', methods=['POST'])
 def submit():
