@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="az">
 <head>
@@ -5,19 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edurevo | Tədris Platforması</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll("section");
+      sections.forEach(sec => sec.style.display = "none");
+      document.getElementById(id).style.display = "block";
+    }
+
+    window.onload = function() {
+      showSection('welcome'); // yalnız xoş gəlmisiniz ilk görünür
+    };
+  </script>
 </head>
 <body>
 
   <header>
-    <h1>Edurevo</h1>
+    <h1 class="fade-in">Edurevo</h1>
     <nav>
-      <a href="#haqqimda">Haqqımda</a>
-      <a href="#dersler">Dərslər</a>
-      <a href="#gunler">Dərs günləri</a>
-      <a href="#qiymet">Qiymət</a>
-      <a href="#elaqe">Əlaqə</a>
+      <a href="#" onclick="showSection('welcome')">Xoş Gəlmisiniz</a>
+      <a href="#" onclick="showSection('haqqimda')">Haqqımda</a>
+      <a href="#" onclick="showSection('dersler')">Dərslər</a>
+      <a href="#" onclick="showSection('gunler')">Dərs günləri</a>
+      <a href="#" onclick="showSection('qiymet')">Qiymət</a>
+      <a href="#" onclick="showSection('elaqe')">Əlaqə</a>
     </nav>
   </header>
+
+  <section id="welcome">
+    <h2>Xoş Gəlmisiniz!</h2>
+    <p>Edurevo platformasına daxil olduğunuz üçün təşəkkür edirik!</p>
+  </section>
 
   <section id="haqqimda">
     <h2>Haqqımda</h2>
@@ -42,12 +60,15 @@
 
   <section id="elaqe">
     <h2>Əlaqə</h2>
-    <form action="/submit" method="POST">
+    <form onsubmit="event.preventDefault(); document.getElementById('form-success').style.display = 'block'; this.reset();">
       <input type="text" name="ad" placeholder="Adınız" required>
       <input type="text" name="telefon" placeholder="Telefon nömrəniz" required>
       <textarea name="mesaj" placeholder="Mesajınız" required></textarea>
       <button type="submit">Göndər</button>
     </form>
+    <div id="form-success" style="display:none; color: green; font-weight: bold; margin-top: 15px;">
+      ✅ Təşəkkürlər! Mesajınız göndərildi.
+    </div>
   </section>
 
   <footer>
