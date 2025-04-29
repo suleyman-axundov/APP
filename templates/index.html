@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edurevo | Tədris Platforması</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <header>
+    <h1>Edurevo</h1>
+    <nav>
+      <a href="#haqqimda">Haqqımda</a>
+      <a href="#dersler">Dərslər</a>
+      <a href="#gunler">Dərs günləri</a>
+      <a href="#qiymet">Qiymət</a>
+      <a href="#elaqe">Əlaqə</a>
+    </nav>
+  </header>
+
+  <section id="haqqimda">
+    <h2>Haqqımda</h2>
+    <p>Salam! Mən Süleyman Axundzadə, Edurevo tədris platformasının təsisçisiyəm. UNEC məzunuyam, kompüter elmləri üzrə ixtisaslaşmışam. Python, proqramlaşdırma və informatika sahələrində abituriyentlərə, tələbələrə və proqramlaşdırmaya yeni başlayanlara yüksək səviyyəli təhsil verirəm.</p>
+  </section>
+
+  <section id="dersler">
+    <h2>Dərslər Necə Keçirilir?</h2>
+    <p>Dərslər interaktiv və praktiki yönümlüdür. Mövzular izah olunur, hər dərsdən sonra real tapşırıqlar və layihələr icra edilir. İştirakçılar dərs zamanı sual verə və dərhal cavab ala bilirlər.</p>
+  </section>
+
+  <section id="gunler">
+    <h2>Dərs Günləri</h2>
+    <p><strong>Dərs günləri və saatları tezliklə elan olunacaq.</strong></p>
+  </section>
+
+  <section id="qiymet">
+    <h2>Qiymət</h2>
+    <p><strong>Aylıq ödəniş:</strong> 50 AZN</p>
+    <p>İlk dərs <strong>ödənişsiz sınaq dərsidir!</strong></p>
+  </section>
+
+  <section id="elaqe">
+    <h2>Əlaqə</h2>
+    <form action="/submit" method="POST">
+      <input type="text" name="ad" placeholder="Adınız" required>
+      <input type="text" name="telefon" placeholder="Telefon nömrəniz" required>
+      <textarea name="mesaj" placeholder="Mesajınız" required></textarea>
+      <button type="submit">Göndər</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Edurevo. Bütün hüquqlar qorunur.</p>
+  </footer>
+
+</body>
+</html>
