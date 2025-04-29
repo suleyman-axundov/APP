@@ -6,36 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edurevo | Tədris Platforması</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <script>
-    function showSection(id) {
-      const sections = document.querySelectorAll("section");
-      sections.forEach(sec => sec.style.display = "none");
-      document.getElementById(id).style.display = "block";
-    }
-
-    window.onload = function() {
-      showSection('welcome'); // yalnız xoş gəlmisiniz ilk görünür
-    };
-  </script>
 </head>
 <body>
 
   <header>
-    <h1 class="fade-in">Edurevo</h1>
+    <h1 class="big-title">XOŞ GƏLMİSİNİZ!</h1>
     <nav>
-      <a href="#" onclick="showSection('welcome')">Xoş Gəlmisiniz</a>
-      <a href="#" onclick="showSection('haqqimda')">Haqqımda</a>
-      <a href="#" onclick="showSection('dersler')">Dərslər</a>
-      <a href="#" onclick="showSection('gunler')">Dərs günləri</a>
-      <a href="#" onclick="showSection('qiymet')">Qiymət</a>
-      <a href="#" onclick="showSection('elaqe')">Əlaqə</a>
+      <a href="#haqqimda">Haqqımda</a>
+      <a href="#dersler">Dərslər</a>
+      <a href="#gunler">Dərs günləri</a>
+      <a href="#qiymet">Qiymət</a>
+      <a href="#elaqe">Əlaqə</a>
     </nav>
   </header>
-
-  <section id="welcome">
-    <h2>Xoş Gəlmisiniz!</h2>
-    <p>Edurevo platformasına daxil olduğunuz üçün təşəkkür edirik!</p>
-  </section>
 
   <section id="haqqimda">
     <h2>Haqqımda</h2>
