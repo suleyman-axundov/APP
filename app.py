@@ -1,5 +1,4 @@
-
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, flash
 from flask_cors import CORS
 from flask_talisman import Talisman
 import smtplib
@@ -7,11 +6,12 @@ from email.mime.text import MIMEText
 import os
 
 app = Flask(__name__)
+app.secret_key = "supersecretkey"
 CORS(app)
 Talisman(app)
 
-GMAIL_USER = 'suleyman.axundov2004@gmail.com'
-GMAIL_PASSWORD = 'ldvdfdkbubkffzty'
+GMAIL_USER = os.environ.get('EMAIL_USER')
+GMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
 
 @app.route('/')
 def home():
@@ -30,11 +30,12 @@ def submit():
     msg['From'] = GMAIL_USER
     msg['To'] = GMAIL_USER
 
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-        server.login(GMAIL_USER, GMAIL_PASSWORD)
-        server.send_message(msg)
+    try:
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+            server.login(GMAIL_USER, GMAIL_PASSWORD)
+            server.send_message(msg)
+        flash("✅ Təşəkkürlər! Mesajınız göndərildi.", "success")
+    except Exception as e:
+        flash("❌ Xəta baş verdi: " + str(e), "danger")
 
-    return 'Təşəkkürlər! Mesajınız uğurla göndərildi.'
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=os.environ.get('PORT', 5000))
+    return redirect('/')
